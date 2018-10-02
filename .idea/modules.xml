@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jdk/jdk.iml" filepath="$PROJECT_DIR$/.idea/modules/jdk/jdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/js/js.iml" filepath="$PROJECT_DIR$/.idea/modules/js/js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/loadcy.iml" filepath="$PROJECT_DIR$/.idea/modules/loadcy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lodacy/lodacy.iml" filepath="$PROJECT_DIR$/lodacy/lodacy.iml" />
+    </modules>
+  </component>
+</project>
