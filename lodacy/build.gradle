@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'checkstyle'
+
+task checkstyle(type: Checkstyle) {
+    configFile rootProject.file('checkstyle.xml')
+    source 'src/main/java'
+    ignoreFailures false
+    showViolations true
+    include '**/*.java'
+
+    classpath = files()
+}
+
+afterEvaluate {
+    if (project.tasks.findByName('check')) {
+        check.dependsOn('checkstyle')
+    }
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+    }
+
+    lintOptions {
+        textReport true
+        textOutput 'stdout'
+    }
+
+    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+    libraryVariants.all {
+        it.generateBuildConfig.enabled = false
+    }
+}
+
+dependencies {
+    implementation deps.annotations
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation deps.annotations
+    testImplementation deps.junit
+    testImplementation deps.truth
+    testImplementation deps.robolectric
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
